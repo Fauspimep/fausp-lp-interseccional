@@ -1,0 +1,24 @@
+name: Deploy para Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Publicar no Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar Vercel CLI
+        run: npm install -g vercel
+
+      - name: Publicar no Vercel (produção)
+        run: vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
