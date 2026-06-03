@@ -256,7 +256,8 @@ header{position:fixed;inset:0 0 auto 0;z-index:200;display:flex;align-items:cent
 #precos{background:var(--gray2);position:relative;overflow:hidden;}
 .precos-header{text-align:center;margin-bottom:44px;position:relative;z-index:2;}
 .precos-header .h2{margin-top:12px;}
-.precos-sub{font-size:1rem;color:var(--muted);max-width:580px;margin:14px auto 0;line-height:1.7;}
+.precos-sub{font-size:1rem;color:var(--muted);max-width:none;white-space:nowrap;margin:14px auto 0;line-height:1.7;}
+@media(max-width:760px){.precos-sub{white-space:normal;}}
 .precos-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;position:relative;z-index:2;}
 @media(max-width:760px){.precos-grid{grid-template-columns:1fr;}}
 .price-card-main{background:rgba(255,255,255,.05);border:1px solid rgba(90,174,232,.35);border-radius:18px;padding:36px 32px;position:relative;}
@@ -648,7 +649,13 @@ footer p+p{margin-top:6px;}
         <h2 class="h2" style="margin-top:12px;">A instituição por trás<br><em class="italic-blue">do seu título</em></h2>
         <p style="margin-top:20px;">A FAUSP (Faculdade Unida de São Paulo) é uma instituição de ensino superior reconhecida pelo MEC, com anos de história na formação de profissionais de saúde, educação e humanidades.</p>
         <p>Nosso curso de Psicologia possui <strong style="color:var(--white);">nota máxima no MEC</strong>, a mesma referência que sustenta a qualidade desta pós-graduação. Você se especializa com quem já comprovou excelência no ensino da área.</p>
-        <div class="mec-badge r d2">
+      </div>
+      <div class="stats-grid r d1">
+        <div class="stat-box r">
+          <div class="stat-num"><span class="counter" data-target="30000">0</span><span class="stat-suffix">+</span></div>
+          <div class="stat-label">Alunos formados</div>
+        </div>
+        <div class="mec-badge r d1" style="display:flex;width:100%;margin-top:0;align-self:stretch;">
           <div class="mec-star">&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</div>
           <div class="mec-info">
             <div class="mec-tag-sm">Credencial MEC</div>
@@ -656,18 +663,6 @@ footer p+p{margin-top:6px;}
             <div class="mec-desc-sm">Avaliação oficial do Ministério da Educação</div>
           </div>
         </div>
-      </div>
-      <div class="stats-grid r d1">
-        <div class="stat-box r">
-          <div class="stat-num"><span class="counter" data-target="30000">0</span><span class="stat-suffix">+</span></div>
-          <div class="stat-label">Alunos formados</div>
-        </div>
-        <div class="stat-box r d1">
-          <div class="stat-num"><span class="stat-suffix" style="font-size:2.5rem;">5</span><span class="stat-suffix">&#9733;</span></div>
-          <div class="stat-label">Nota no MEC</div>
-        </div>
-
-
       </div>
     </div>
   </div>
