@@ -215,13 +215,14 @@ header{position:fixed;inset:0 0 auto 0;z-index:200;display:flex;align-items:cent
 .fausp-left .h2{margin-bottom:20px;}
 .fausp-left p{font-size:1rem;color:var(--muted);line-height:1.8;}
 .fausp-left p+p{margin-top:14px;}
-.mec-badge{margin-top:28px;display:inline-flex;align-items:center;gap:14px;background:rgba(242,145,0,.08);border:1px solid var(--border-o);border-radius:12px;padding:16px 22px;}
-.mec-star{font-size:2rem;}
+.mec-badge{display:flex;align-items:center;gap:16px;background:rgba(242,145,0,.08);border:1px solid var(--border-o);border-radius:12px;padding:18px 22px;width:100%;}
+.mec-star{font-size:1.8rem;flex-shrink:0;white-space:nowrap;}
+.mec-info{min-width:0;}
 .mec-info .mec-tag-sm{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--orange);margin-bottom:2px;}
-.mec-info .mec-title-sm{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;text-transform:uppercase;color:var(--white);line-height:1.2;}
+.mec-info .mec-title-sm{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;text-transform:uppercase;color:var(--white);line-height:1.2;}
 .mec-info .mec-desc-sm{font-size:.78rem;color:var(--muted);margin-top:2px;}
 /* Stats */
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.stats-grid{display:flex;flex-direction:column;gap:16px;}
 .stat-box{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:24px 20px;text-align:center;}
 .stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.2rem,4vw,3rem);line-height:1;color:var(--white);margin-bottom:4px;}
 .stat-num .stat-suffix{font-size:1.4rem;color:var(--orange);}
@@ -655,7 +656,7 @@ footer p+p{margin-top:6px;}
           <div class="stat-num"><span class="counter" data-target="30000">0</span><span class="stat-suffix">+</span></div>
           <div class="stat-label">Alunos formados</div>
         </div>
-        <div class="mec-badge r d1" style="display:flex;width:100%;margin-top:0;align-self:stretch;">
+        <div class="mec-badge r d1">
           <div class="mec-star">&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</div>
           <div class="mec-info">
             <div class="mec-tag-sm">Credencial MEC</div>
