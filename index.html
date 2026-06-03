@@ -281,41 +281,23 @@ header{position:fixed;inset:0 0 auto 0;z-index:200;display:flex;align-items:cent
 .precos-roi{text-align:center;margin-top:44px;padding:20px 28px;background:rgba(242,145,0,.07);border:1px solid rgba(242,145,0,.2);border-radius:10px;max-width:680px;margin-left:auto;margin-right:auto;position:relative;z-index:2;}
 .roi-highlight{color:var(--orange);font-weight:600;}
 
-/* ═══ PROFESSORES — CARROSSEL (SLATE) ══════════════════ */
+/* ═══ PROFESSORES — TICKER (SLATE) ══════════════════ */
 #professores{background:var(--slate);padding-top:0;padding-bottom:96px;overflow:hidden;position:relative;}
 #professores::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none;z-index:0;}
 .prof-header{margin-bottom:44px;padding-top:96px;position:relative;z-index:2;}
 .prof-header .label{margin-bottom:10px;}
 .prof-header .h2{margin-top:10px;}
-/* Carrossel */
-.carousel-outer{position:relative;z-index:2;}
-.carousel-viewport{overflow:hidden;border-radius:16px;}
-.carousel-track{display:flex;transition:transform .45s cubic-bezier(.25,.46,.45,.94);will-change:transform;}
-.carousel-slide{min-width:100%;padding:0 4px;box-sizing:border-box;}
-@media(min-width:760px){.carousel-slide{min-width:50%;}}
-.prof-big-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:220px 1fr;transition:border-color .3s;}
-.prof-big-card:hover{border-color:rgba(167,139,250,.4);}
-@media(max-width:640px){.prof-big-card{grid-template-columns:1fr;}}
-.prof-photo-col{position:relative;background:linear-gradient(155deg,rgba(90,174,232,.15),rgba(167,139,250,.1));display:flex;align-items:center;justify-content:center;min-height:280px;overflow:hidden;}
-@media(max-width:640px){.prof-photo-col{min-height:220px;}}
-.prof-real-photo{width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;}
-.prof-initials{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.2rem;color:white;letter-spacing:2px;border:4px solid rgba(255,255,255,.2);}
-.prof-info-col{padding:32px 28px;display:flex;flex-direction:column;justify-content:center;gap:12px;}
-@media(max-width:640px){.prof-info-col{padding:24px 20px;}}
-.prof-big-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;color:var(--white);line-height:1.1;margin-bottom:8px;}
-.prof-big-area{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--violet-light);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);border-radius:20px;padding:4px 12px;}
-.prof-big-bio{font-size:.88rem;color:rgba(255,255,255,.78);line-height:1.75;}
-.prof-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-.prof-tag{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;background:rgba(90,174,232,.1);border:1px solid rgba(90,174,232,.25);color:var(--blue-light);padding:3px 10px;border-radius:20px;}
-.prof-breve-badge{font-size:.78rem;color:var(--muted2);font-style:italic;padding:4px 0;}
-/* Nav do carrossel */
-.carousel-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;position:relative;z-index:2;}
-.carousel-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:var(--white);font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1;}
-.carousel-btn:hover{background:rgba(167,139,250,.25);border-color:rgba(167,139,250,.5);}
-.carousel-btn:disabled{opacity:.3;cursor:default;}
-.carousel-dots{display:flex;gap:8px;align-items:center;}
-.c-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .25s;}
-.c-dot.active{background:var(--violet-light);width:22px;border-radius:4px;}
+.prof-carousel-wrap{overflow:hidden;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);}
+.prof-track{display:flex;gap:20px;width:max-content;animation:prof-scroll 35s linear infinite;}
+.prof-track:hover{animation-play-state:paused;}
+@keyframes prof-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.prof-card{background:var(--dark2);border:1px solid rgba(167,139,250,.15);border-radius:12px;padding:28px 26px;width:280px;flex-shrink:0;transition:border-color .22s;}
+.prof-card:hover{border-color:rgba(167,139,250,.45);}
+.prof-role{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--violet-light);margin-bottom:10px;}
+.prof-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--slate),var(--violet));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;color:var(--white);margin-bottom:14px;border:2px solid rgba(167,139,250,.3);overflow:hidden;}
+.prof-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+.prof-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;color:var(--white);margin-bottom:8px;}
+.prof-bio{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.6;}
 
 /* ═══ FAQ ═══════════════════════════════════════════════ */
 #faq{background:var(--dark);position:relative;overflow:hidden;}
@@ -781,106 +763,30 @@ footer p+p{margin-top:6px;}
   </div>
 </section>
 
-<!-- SEÇÃO 8: PROFESSORES — CARROSSEL -->
+<!-- SEÇÃO 8: PROFESSORES — TICKER -->
 <section id="professores">
   <div class="wrap">
     <div class="prof-header r">
       <p class="label">Quem te ensina</p>
       <h2 class="h2" style="margin-top:10px;">Professores que vivem<br><em class="italic-teal">o que ensinam</em></h2>
     </div>
-    <div class="carousel-outer">
-      <div class="carousel-viewport" id="profCarousel">
-        <div class="carousel-track" id="profTrack">
-
-          <!-- SLIDE 1 — Adriana Fogagnoli -->
-          <div class="carousel-slide">
-            <div class="prof-big-card r">
-              <div class="prof-photo-col">
-                <img
-                  class="prof-real-photo"
-                  src="https://lh3.googleusercontent.com/d/1kW2x7U9KaJO9455TUqPs4DbmgJdUpt1k"
-                  alt="Adriana Fogagnoli"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                >
-                <div class="prof-initials" style="display:none;">AF</div>
-              </div>
-              <div class="prof-info-col">
-                <div>
-                  <div class="prof-big-name">Adriana Fogagnoli</div>
-                  <div class="prof-big-area">Psicanálise &amp; Psicologia Social</div>
-                </div>
-                <p class="prof-big-bio">
-                  Psicanalista e Mestre em Psicologia Social pela USP. Membro do LAPSO — Laboratório de Estudos em Psicanálise e Psicologia Social (USP) — e integrante do Coletivo clínico-político EscutaCRUSP, dedicado ao atendimento gratuito de estudantes de grupos minorizados na universidade.
-                </p>
-                <p class="prof-big-bio" style="margin-top:8px;">
-                  Ex-coordenadora de pesquisas na Fundação Carlos Chagas por uma década, onde conduziu avaliações nacionais como ENADE, SAEB, ENEM e SARESP. Hoje atua na clínica psicanalítica, em análise institucional e no projeto <em>A Vida com Freud</em> (@drifogagnoli).
-                </p>
-                <div class="prof-tags">
-                  <span class="prof-tag">USP</span>
-                  <span class="prof-tag">LAPSO</span>
-                  <span class="prof-tag">Psicanálise</span>
-                  <span class="prof-tag">Análise Institucional</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SLIDE 2 — Luigi Ribeiro -->
-          <div class="carousel-slide">
-            <div class="prof-big-card r d1">
-              <div class="prof-photo-col">
-                <img
-                  class="prof-real-photo"
-                  src="https://lh3.googleusercontent.com/d/1fc5KaXQmvyQbTbgW0lchPv7J5qdkOPid"
-                  alt="Luigi Ribeiro"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                >
-                <div class="prof-initials" style="display:none;">LR</div>
-              </div>
-              <div class="prof-info-col">
-                <div>
-                  <div class="prof-big-name">Luigi Ribeiro</div>
-                  <div class="prof-big-area">Clínica Afirmativa</div>
-                </div>
-                <p class="prof-breve-badge">&#x231B; Currículo completo em breve</p>
-                <div class="prof-tags">
-                  <span class="prof-tag">Clínica Afirmativa</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SLIDE 3 — Jailton Melo -->
-          <div class="carousel-slide">
-            <div class="prof-big-card r d2">
-              <div class="prof-photo-col">
-                <div class="prof-initials">JM</div>
-              </div>
-              <div class="prof-info-col">
-                <div>
-                  <div class="prof-big-name">Jailton Melo</div>
-                  <div class="prof-big-area">Práticas Antirracistas</div>
-                </div>
-                <p class="prof-breve-badge">&#x231B; Foto e currículo completo em breve</p>
-                <div class="prof-tags">
-                  <span class="prof-tag">Antirracismo</span>
-                  <span class="prof-tag">Clínica Social</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /carousel-track -->
-      </div><!-- /carousel-viewport -->
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="profPrev" onclick="profSlide(-1)" aria-label="Anterior">&#8249;</button>
-        <div class="carousel-dots" id="profDots">
-          <span class="c-dot active" onclick="profGoTo(0)"></span>
-          <span class="c-dot" onclick="profGoTo(1)"></span>
-          <span class="c-dot" onclick="profGoTo(2)"></span>
-        </div>
-        <button class="carousel-btn" id="profNext" onclick="profSlide(1)" aria-label="Próximo">&#8250;</button>
-      </div>
+  </div>
+  <div class="prof-carousel-wrap">
+    <div class="prof-track">
+      <div class="prof-card"><div class="prof-role">Coordenação</div><div class="prof-avatar"><img src="img/prof-roberta.jpg" alt="Roberta Oliveira" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">RO</span></div><div class="prof-name">Roberta Oliveira</div><div class="prof-bio">Psicóloga e Psicanalista, Doutora em Psicologia Social (USP). Pesquisadora do LAPSO/USP. Coordenadora do curso de Psicologia da FAUSP.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-adriana.jpg" alt="Adriana Fogagnoli" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">AF</span></div><div class="prof-name">Adriana Fogagnoli</div><div class="prof-bio">Psicanalista e Mestre em Psicologia Social (USP). Membro do LAPSO/USP. Clínica psicanalítica, análise institucional e criadora do projeto 'A Vida com Freud'.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-luigi.jpg" alt="Luigi Ribeiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">LR</span></div><div class="prof-name">Luigi Ribeiro</div><div class="prof-bio">Psicólogo e Gestor Terapêutico. Especialista em Gestalt-Terapia (Sedes Sapientiae). Coordenador de Casas Terapêuticas do Governo do Estado de SP.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-marianne.jpg" alt="Marianne Riera" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">MR</span></div><div class="prof-name">Marianne Riera</div><div class="prof-bio">Psicóloga e Mestre em Psicologia Social (USP). Psicanalista e Analista Institucional. Membro do LAPSO/USP. 15 anos de experiência em grupos.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-marina.jpg" alt="Marina Lopreato" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">ML</span></div><div class="prof-name">Marina Lopreato</div><div class="prof-bio">Mestra e doutoranda em Psicologia Social (USP). LAPSO/USP. Pesquisa psicanálise, gênero e sexualidade. Psicóloga no IFSP desde 2013.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-cristiane.jpg" alt="Cristiane Almeida" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">CA</span></div><div class="prof-name">Cristiane Almeida</div><div class="prof-bio">Psicóloga e Psicanalista. Especialista em Neuropsicologia, Psicanálise e TCC. Atua com identidade, gênero, sexualidade e relações raciais.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-ronaldo.jpg" alt="Ronaldo Neves" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">RN</span></div><div class="prof-name">Ronaldo Neves</div><div class="prof-bio">Psicólogo (PUC/MG), Filósofo e Mestre em Políticas com Adolescentes (UNIAN). Experiência em saúde sexual, LGBTQIAP+ e assessoria a ONGs.</div></div>
+      <div class="prof-card"><div class="prof-role">Coordenação</div><div class="prof-avatar"><img src="img/prof-roberta.jpg" alt="Roberta Oliveira" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">RO</span></div><div class="prof-name">Roberta Oliveira</div><div class="prof-bio">Psicóloga e Psicanalista, Doutora em Psicologia Social (USP). Pesquisadora do LAPSO/USP. Coordenadora do curso de Psicologia da FAUSP.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-adriana.jpg" alt="Adriana Fogagnoli" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">AF</span></div><div class="prof-name">Adriana Fogagnoli</div><div class="prof-bio">Psicanalista e Mestre em Psicologia Social (USP). Membro do LAPSO/USP. Clínica psicanalítica, análise institucional e criadora do projeto 'A Vida com Freud'.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-luigi.jpg" alt="Luigi Ribeiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">LR</span></div><div class="prof-name">Luigi Ribeiro</div><div class="prof-bio">Psicólogo e Gestor Terapêutico. Especialista em Gestalt-Terapia (Sedes Sapientiae). Coordenador de Casas Terapêuticas do Governo do Estado de SP.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-marianne.jpg" alt="Marianne Riera" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">MR</span></div><div class="prof-name">Marianne Riera</div><div class="prof-bio">Psicóloga e Mestre em Psicologia Social (USP). Psicanalista e Analista Institucional. Membro do LAPSO/USP. 15 anos de experiência em grupos.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-marina.jpg" alt="Marina Lopreato" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">ML</span></div><div class="prof-name">Marina Lopreato</div><div class="prof-bio">Mestra e doutoranda em Psicologia Social (USP). LAPSO/USP. Pesquisa psicanálise, gênero e sexualidade. Psicóloga no IFSP desde 2013.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-cristiane.jpg" alt="Cristiane Almeida" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">CA</span></div><div class="prof-name">Cristiane Almeida</div><div class="prof-bio">Psicóloga e Psicanalista. Especialista em Neuropsicologia, Psicanálise e TCC. Atua com identidade, gênero, sexualidade e relações raciais.</div></div>
+      <div class="prof-card"><div class="prof-role">Docente</div><div class="prof-avatar"><img src="img/prof-ronaldo.jpg" alt="Ronaldo Neves" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">RN</span></div><div class="prof-name">Ronaldo Neves</div><div class="prof-bio">Psicólogo (PUC/MG), Filósofo e Mestre em Políticas com Adolescentes (UNIAN). Experiência em saúde sexual, LGBTQIAP+ e assessoria a ONGs.</div></div>
     </div>
   </div>
 </section>
@@ -1137,48 +1043,6 @@ function ativarSom(){
   document.getElementById('unmute-btn').classList.add('hidden');
 }
 
-
-/* ═══ CARROSSEL PROFESSORES ══════════════════════════════════ */
-(function(){
-  var track = document.getElementById('profTrack');
-  var slides = track ? track.querySelectorAll('.carousel-slide') : [];
-  var dots = document.querySelectorAll('#profDots .c-dot');
-  var current = 0;
-  function perView(){ return window.innerWidth >= 760 ? 2 : 1; }
-  function maxIdx(){ return Math.max(0, slides.length - perView()); }
-  var startX = 0;
-
-  window.addEventListener('resize', function(){ if(current > maxIdx()) current = maxIdx(); render(); });
-
-  function render(){
-    if(!track) return;
-    var pct = (100 / perView()) * current;
-    track.style.transform = 'translateX(-' + pct + '%)';
-    dots.forEach(function(d,i){ d.classList.toggle('active', i === current); });
-    var prevBtn = document.getElementById('profPrev');
-    var nextBtn = document.getElementById('profNext');
-    if(prevBtn) prevBtn.disabled = current === 0;
-    if(nextBtn) nextBtn.disabled = current >= maxIdx();
-  }
-
-  window.profSlide = function(dir){
-    current = Math.max(0, Math.min(maxIdx(), current + dir));
-    render();
-  };
-  window.profGoTo = function(idx){
-    current = Math.max(0, Math.min(maxIdx(), idx));
-    render();
-  };
-
-  if(track){
-    track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
-    track.addEventListener('touchend', function(e){
-      var dx = e.changedTouches[0].clientX - startX;
-      if(Math.abs(dx) > 40) profSlide(dx < 0 ? 1 : -1);
-    });
-  }
-  render();
-})();
 
 /* ═══ FORM ══════════════════════════════════════════════ */
 function handleForm(e){
