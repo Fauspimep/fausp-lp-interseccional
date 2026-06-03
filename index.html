@@ -281,22 +281,41 @@ header{position:fixed;inset:0 0 auto 0;z-index:200;display:flex;align-items:cent
 .precos-roi{text-align:center;margin-top:44px;padding:20px 28px;background:rgba(242,145,0,.07);border:1px solid rgba(242,145,0,.2);border-radius:10px;max-width:680px;margin-left:auto;margin-right:auto;position:relative;z-index:2;}
 .roi-highlight{color:var(--orange);font-weight:600;}
 
-/* ═══ PROFESSORES (SLATE) ═══════════════════════════════ */
+/* ═══ PROFESSORES — CARROSSEL (SLATE) ══════════════════ */
 #professores{background:var(--slate);padding-top:0;padding-bottom:96px;overflow:hidden;position:relative;}
 #professores::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none;z-index:0;}
 .prof-header{margin-bottom:44px;padding-top:96px;position:relative;z-index:2;}
 .prof-header .label{margin-bottom:10px;}
 .prof-header .h2{margin-top:10px;}
-.prof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;z-index:2;}
-@media(max-width:860px){.prof-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:480px){.prof-grid{grid-template-columns:1fr;}}
-.prof-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px 18px;text-align:center;transition:all .3s;}
-.prof-card:hover{background:rgba(255,255,255,.12);transform:translateY(-4px);}
-.prof-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:2rem;border:3px solid rgba(255,255,255,.15);}
-.prof-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;text-transform:uppercase;color:var(--white);margin-bottom:4px;}
-.prof-área{font-size:.78rem;color:var(--blue-light);font-weight:600;margin-bottom:8px;}
-.prof-bio{font-size:.78rem;color:var(--muted);line-height:1.55;}
-.prof-em-breve{text-align:center;font-size:.72rem;color:var(--muted2);font-style:italic;margin-top:6px;}
+/* Carrossel */
+.carousel-outer{position:relative;z-index:2;}
+.carousel-viewport{overflow:hidden;border-radius:16px;}
+.carousel-track{display:flex;transition:transform .45s cubic-bezier(.25,.46,.45,.94);will-change:transform;}
+.carousel-slide{min-width:100%;padding:0 4px;box-sizing:border-box;}
+@media(min-width:760px){.carousel-slide{min-width:50%;}}
+.prof-big-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:220px 1fr;transition:border-color .3s;}
+.prof-big-card:hover{border-color:rgba(167,139,250,.4);}
+@media(max-width:640px){.prof-big-card{grid-template-columns:1fr;}}
+.prof-photo-col{position:relative;background:linear-gradient(155deg,rgba(90,174,232,.15),rgba(167,139,250,.1));display:flex;align-items:center;justify-content:center;min-height:280px;overflow:hidden;}
+@media(max-width:640px){.prof-photo-col{min-height:220px;}}
+.prof-real-photo{width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;}
+.prof-initials{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.2rem;color:white;letter-spacing:2px;border:4px solid rgba(255,255,255,.2);}
+.prof-info-col{padding:32px 28px;display:flex;flex-direction:column;justify-content:center;gap:12px;}
+@media(max-width:640px){.prof-info-col{padding:24px 20px;}}
+.prof-big-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;color:var(--white);line-height:1.1;margin-bottom:8px;}
+.prof-big-area{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--violet-light);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);border-radius:20px;padding:4px 12px;}
+.prof-big-bio{font-size:.88rem;color:rgba(255,255,255,.78);line-height:1.75;}
+.prof-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.prof-tag{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;background:rgba(90,174,232,.1);border:1px solid rgba(90,174,232,.25);color:var(--blue-light);padding:3px 10px;border-radius:20px;}
+.prof-breve-badge{font-size:.78rem;color:var(--muted2);font-style:italic;padding:4px 0;}
+/* Nav do carrossel */
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;position:relative;z-index:2;}
+.carousel-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:var(--white);font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1;}
+.carousel-btn:hover{background:rgba(167,139,250,.25);border-color:rgba(167,139,250,.5);}
+.carousel-btn:disabled{opacity:.3;cursor:default;}
+.carousel-dots{display:flex;gap:8px;align-items:center;}
+.c-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .25s;}
+.c-dot.active{background:var(--violet-light);width:22px;border-radius:4px;}
 
 /* ═══ FAQ ═══════════════════════════════════════════════ */
 #faq{background:var(--dark);position:relative;overflow:hidden;}
@@ -762,41 +781,105 @@ footer p+p{margin-top:6px;}
   </div>
 </section>
 
-<!-- SEÇÃO 8: PROFESSORES (SLATE) -->
+<!-- SEÇÃO 8: PROFESSORES — CARROSSEL -->
 <section id="professores">
   <div class="wrap">
     <div class="prof-header r">
       <p class="label">Quem te ensina</p>
       <h2 class="h2" style="margin-top:10px;">Professores que vivem<br><em class="italic-teal">o que ensinam</em></h2>
     </div>
-    <div class="prof-grid">
-      <div class="prof-card r">
-        <div class="prof-avatar">&#x1F9D1;</div>
-        <div class="prof-name">Em breve</div>
-        <div class="prof-área">Clínica Afirmativa</div>
-        <p class="prof-bio">Informações do professor serão divulgadas em breve.</p>
-        <p class="prof-em-breve">Foto e bio a confirmar</p>
-      </div>
-      <div class="prof-card r d1">
-        <div class="prof-avatar">&#x1F9D1;</div>
-        <div class="prof-name">Em breve</div>
-        <div class="prof-área">Práticas Antirracistas</div>
-        <p class="prof-bio">Informações do professor serão divulgadas em breve.</p>
-        <p class="prof-em-breve">Foto e bio a confirmar</p>
-      </div>
-      <div class="prof-card r d2">
-        <div class="prof-avatar">&#x1F9D1;</div>
-        <div class="prof-name">Em breve</div>
-        <div class="prof-área">Gênero e Sexualidade</div>
-        <p class="prof-bio">Informações do professor serão divulgadas em breve.</p>
-        <p class="prof-em-breve">Foto e bio a confirmar</p>
-      </div>
-      <div class="prof-card r d3">
-        <div class="prof-avatar">&#x1F9D1;</div>
-        <div class="prof-name">Em breve</div>
-        <div class="prof-área">Ética Clínica</div>
-        <p class="prof-bio">Informações do professor serão divulgadas em breve.</p>
-        <p class="prof-em-breve">Foto e bio a confirmar</p>
+    <div class="carousel-outer">
+      <div class="carousel-viewport" id="profCarousel">
+        <div class="carousel-track" id="profTrack">
+
+          <!-- SLIDE 1 — Adriana Fogagnoli -->
+          <div class="carousel-slide">
+            <div class="prof-big-card r">
+              <div class="prof-photo-col">
+                <img
+                  class="prof-real-photo"
+                  src="https://lh3.googleusercontent.com/d/1kW2x7U9KaJO9455TUqPs4DbmgJdUpt1k"
+                  alt="Adriana Fogagnoli"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                >
+                <div class="prof-initials" style="display:none;">AF</div>
+              </div>
+              <div class="prof-info-col">
+                <div>
+                  <div class="prof-big-name">Adriana Fogagnoli</div>
+                  <div class="prof-big-area">Psicanálise &amp; Psicologia Social</div>
+                </div>
+                <p class="prof-big-bio">
+                  Psicanalista e Mestre em Psicologia Social pela USP. Membro do LAPSO — Laboratório de Estudos em Psicanálise e Psicologia Social (USP) — e integrante do Coletivo clínico-político EscutaCRUSP, dedicado ao atendimento gratuito de estudantes de grupos minorizados na universidade.
+                </p>
+                <p class="prof-big-bio" style="margin-top:8px;">
+                  Ex-coordenadora de pesquisas na Fundação Carlos Chagas por uma década, onde conduziu avaliações nacionais como ENADE, SAEB, ENEM e SARESP. Hoje atua na clínica psicanalítica, em análise institucional e no projeto <em>A Vida com Freud</em> (@drifogagnoli).
+                </p>
+                <div class="prof-tags">
+                  <span class="prof-tag">USP</span>
+                  <span class="prof-tag">LAPSO</span>
+                  <span class="prof-tag">Psicanálise</span>
+                  <span class="prof-tag">Análise Institucional</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 — Luigi Ribeiro -->
+          <div class="carousel-slide">
+            <div class="prof-big-card r d1">
+              <div class="prof-photo-col">
+                <img
+                  class="prof-real-photo"
+                  src="https://lh3.googleusercontent.com/d/1fc5KaXQmvyQbTbgW0lchPv7J5qdkOPid"
+                  alt="Luigi Ribeiro"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                >
+                <div class="prof-initials" style="display:none;">LR</div>
+              </div>
+              <div class="prof-info-col">
+                <div>
+                  <div class="prof-big-name">Luigi Ribeiro</div>
+                  <div class="prof-big-area">Clínica Afirmativa</div>
+                </div>
+                <p class="prof-breve-badge">&#x231B; Currículo completo em breve</p>
+                <div class="prof-tags">
+                  <span class="prof-tag">Clínica Afirmativa</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 — Jailton Melo -->
+          <div class="carousel-slide">
+            <div class="prof-big-card r d2">
+              <div class="prof-photo-col">
+                <div class="prof-initials">JM</div>
+              </div>
+              <div class="prof-info-col">
+                <div>
+                  <div class="prof-big-name">Jailton Melo</div>
+                  <div class="prof-big-area">Práticas Antirracistas</div>
+                </div>
+                <p class="prof-breve-badge">&#x231B; Foto e currículo completo em breve</p>
+                <div class="prof-tags">
+                  <span class="prof-tag">Antirracismo</span>
+                  <span class="prof-tag">Clínica Social</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /carousel-track -->
+      </div><!-- /carousel-viewport -->
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="profPrev" onclick="profSlide(-1)" aria-label="Anterior">&#8249;</button>
+        <div class="carousel-dots" id="profDots">
+          <span class="c-dot active" onclick="profGoTo(0)"></span>
+          <span class="c-dot" onclick="profGoTo(1)"></span>
+          <span class="c-dot" onclick="profGoTo(2)"></span>
+        </div>
+        <button class="carousel-btn" id="profNext" onclick="profSlide(1)" aria-label="Próximo">&#8250;</button>
       </div>
     </div>
   </div>
@@ -1053,6 +1136,49 @@ function ativarSom(){
   iframe.src = iframe.src.replace('mute=1','mute=0');
   document.getElementById('unmute-btn').classList.add('hidden');
 }
+
+
+/* ═══ CARROSSEL PROFESSORES ══════════════════════════════════ */
+(function(){
+  var track = document.getElementById('profTrack');
+  var slides = track ? track.querySelectorAll('.carousel-slide') : [];
+  var dots = document.querySelectorAll('#profDots .c-dot');
+  var current = 0;
+  function perView(){ return window.innerWidth >= 760 ? 2 : 1; }
+  function maxIdx(){ return Math.max(0, slides.length - perView()); }
+  var startX = 0;
+
+  window.addEventListener('resize', function(){ if(current > maxIdx()) current = maxIdx(); render(); });
+
+  function render(){
+    if(!track) return;
+    var pct = (100 / perView()) * current;
+    track.style.transform = 'translateX(-' + pct + '%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i === current); });
+    var prevBtn = document.getElementById('profPrev');
+    var nextBtn = document.getElementById('profNext');
+    if(prevBtn) prevBtn.disabled = current === 0;
+    if(nextBtn) nextBtn.disabled = current >= maxIdx();
+  }
+
+  window.profSlide = function(dir){
+    current = Math.max(0, Math.min(maxIdx(), current + dir));
+    render();
+  };
+  window.profGoTo = function(idx){
+    current = Math.max(0, Math.min(maxIdx(), idx));
+    render();
+  };
+
+  if(track){
+    track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', function(e){
+      var dx = e.changedTouches[0].clientX - startX;
+      if(Math.abs(dx) > 40) profSlide(dx < 0 ? 1 : -1);
+    });
+  }
+  render();
+})();
 
 /* ═══ FORM ══════════════════════════════════════════════ */
 function handleForm(e){
